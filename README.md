@@ -41,4 +41,4 @@ $chapter$.$section$.$probnum$
 
 ##### Documentation
 
-I don't have any formal documentation at this time, [but take a look at the code's comments!]()
+I don't have any formal documentation at this time, [but take a look at the code's comments!](https://github.com/jarek-t/auto-hw/blob/master/auto-hw.py)
