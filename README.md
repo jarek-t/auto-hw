@@ -30,7 +30,7 @@ $chapter$[$section$($probnum$,$probnum$)]
 ~~~~
 
 ##### Individual homework template adaption:
-![Alt](ind.png)
+![Alt](individual.png)
 
 Format:
 ~~~~
