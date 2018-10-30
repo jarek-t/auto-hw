@@ -141,7 +141,7 @@ def get_problem_nums():
 
             user_input = "d"
         else:
-            hw_index.append( str( user_input ) )
+            if len(user_input) > 1: hw_index.append( str( user_input ) )
 
     return hw_index
 
@@ -178,11 +178,11 @@ def select_new():
 print( "Hello, good luck on your homework!\nEnter Q to quit\n\n**THIS PROGRAM DOES NOT DO YOUR HOMEWORK, IT IS ONLY CAPABLE OF FILE GENERATION AND SUBMISSION AUTOMATION**\n\n" )
 student_name = input("Please enter your full name (used for submission attribution): ")
 
-depends = get_depends()
+#depends = get_depends()
 submission_index = get_submission_index( get_problem_nums(), depends )
 
 assignment = {}
-commands = { 0:generate_tex,1:reset,2:duplicate_submission,3:render,4:submit,5:select_new }
+commands = { 0:"generate_tex",1:"reset",2:"duplicate_submission",3:"render",4:"submit",5:"select_new" }
 
 for item in submission_index:
     assignment[item] = individual_submission( item, "placeholder", depends)
@@ -203,16 +203,22 @@ while user_input != "q":
 
         #Parses user input for index or name selection then selects the problem
         if user_input.isnumeric():
-            if int(user_input) <= assignment_index.len() and int(user_input) >= 0:
-                selected_problem = assignment_index[int(user_input)]
+            #If the user input a valid index
+            if int(user_input) <= len( submission_index ) and int(user_input) >= 0:
+                selected_problem = submission_index[int(user_input)]
             else:
                 pass
-        elif user_input in assignment_index:
+        #If the user input a full assignment string
+        elif user_input in submission_index:
             selected_problem = user_input
             user_input = "u"
+            pass
         else:
             print("\n**Please make a valid selection.**")
 
     elif user_input == "u":
+        #Lists all commands available
         for i, n in commands:
             print( "[{}] {}".format(i, str(n) ) )
+        '''Complete functionality in progress!!'''
+    pass
